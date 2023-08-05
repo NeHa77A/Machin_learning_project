@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+    crossorigin="anonymous">
+    <!--css file-->
+    <link rel="stylesheet" href="/templates/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>ML Project</title>
+</head>
+<body>
+    <div class="top-navbar bg-black d-flex justify-content-between align-items-center p-2">
+        <div class="logo">
+            <h2 class="text-white">predict<span class="text-warning">Now✨</span></h2>
+        </div>
+        <div class="top-icons float-right">
+            <a href="https://twitter.com/home" class="twitter"><i class="fab fa-twitter text-aqua"></i></a>
+            <a href="https://www.instagram.com/" class="instagram"><i class="fab fa-instagram text-aqua"></i></a>
+            <a href="https://www.facebook.com/" class="facebook"><i class="fab fa-facebook-f text-aqua"></i></a>
+        </div>
+        <div class="other-links">
+            <small>
+            <a href="#" class="btn btn-light" id="btn-login">Login</a>
+            <a href="#" class="btn btn-light" id="btn-signup">Sign-Up</a>
+        </small>
+        </div>
+   
+    </div>
+    <div class="login">
+        <div class="container-fluid vh-35" style="margin-top:30px">
+            <div class="" style="margin-top:20px">
+                <div class="rounded d-flex justify-content-center">
+                    <div class="col-md-5 col-sm-9 shadow-lg p-7 bg-light">
+                        <div class="text-center">
+                            <h3 class="text-danger">Airfoil Prediction</h3>
+                        </div>
+                        <form action="{{ url_for('predict')}}" method="post">
+                        <div class="p-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-primary"><i
+                                        class="bi bi-person-plus-fill text-white"></i></span>
+                                        <input type="text" name="Frequency" placeholder="Frequency" required="required">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-primary"><i
+                                        class="bi bi-person-plus-fill text-white"></i></span>
+                                        <input type="text" name="Angle of attack" placeholder="Angle of attack" required="required">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-primary"><i
+                                        class="bi bi-envelope text-white"></i></span>
+                                        <input type="text" name="Chord length" placeholder="Chord length" required="required">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-primary">
+                                    <i class="bi bi-lock-fill text-white"></i></span>
+                                    <input type="text" name="Free-stream velocity" placeholder="Free-stream velocity" required="required">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-primary">
+                                    <i class="bi bi-lock-fill text-white"></i></span>
+                                <input type="text" name="Suction side" placeholder="Suction side" required="required">
+                            </div>
+                            <div class="d-grid col-7 mx-auto">
+                                <button type="submit">Submit</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="col-md-5 d-sm-none d-md-block p-7 text-center">
+                        <img src="https://www.neuraldesigner.com/images/airfoil-selfnoise-prediction.webp"
+                            class="d-block w-130 img-fluid" alt="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-2">
+            <h3 class="text-primary"> Prediction Is </h3> <div class="text-danger">{{prection_text}}</div>
+        </div>
+        
+   
+    </div>
+
+    
+    <footer id="footer" style="margin-top: 50px;" class="p-2">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 footer-content">
+                <h3>Information</h3>
+                <h6>NASA Airfoil Self-Noise Prediction</h6>
+                <p>NASA Airfoil Self-Noise Dataset a series of tests on two- and three-dimensional airfoil blade sections which have been done in an anechoic wind tunnel for aerodynamic and acoustic reasons. </p>
+                <br>
+                <strong><i class="fas fa-phone"></i> Phone: <strong>+123456789</strong></strong>
+                <br>
+                <strong><i class="fa-solid fa-envelope"></i> Email: <strong>nehavishwakarma7777@gamil.com</strong></strong>
+              </div>
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Usefull Links</h4>
+                <ul>
+                  <li><a href="https://medium.com/@sandalisenarathne/machine-learning-for-nasa-airfoil-self-noise-prediction-f123f79e190c#:~:text=NASA%20Airfoil%20Self%2DNoise%20Dataset,to%20predict%20the%20airfoil%20noise.">Blog</a></li>
+                  <li><a href="https://ntrs.nasa.gov/api/citations/19890016302/downloads/19890016302.pdf">About Us</a></li>
+                  <li><a href="https://scholar.google.co.in/scholar?q=nasa+airfoil+self-noise&hl=en&as_sdt=0&as_vis=1&oi=scholart">Research Paper</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 footer-links">
+  
+                <h4>Step Are Perform</h4>
+                <p> Machine learning involves a series of steps to build, train, and deploy a model that can make predictions or decisions based on data. The typical steps in a machine learning workflow are as follows:</p>
+                <ul>
+                    <li>Data Collection</li>
+                  <li>Data Preprocessing</li>
+                  <li>Feature Engineering</li>
+                  <li>Model Selection</li>
+                  <li>Model Training</li>
+                  <li>Model Deployment</li> 
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Social Network</h4>
+                <p>Social media is an internet-based form of communication. Social media platforms allow users to have conversations, share information and create web content.</p>
+                <div class="social-links mt-3">
+                  <a href="https://twitter.com/home" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/feed/" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container py-4">
+          <div class="copyright">
+            &copy; copyright <strong>GrowUp</strong>.All Rights Reserved
+          </div>
+          <div class="credits float-right">
+            Designed By <a href="#">Neha Vishwakarma</a>
+          </div>
+        </div>
+  
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
+    crossorigin="anonymous"></script>
+  
+</body>
+</html>
